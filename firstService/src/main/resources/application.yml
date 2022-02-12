@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: firstService
+server:
+  port: 8081
+
