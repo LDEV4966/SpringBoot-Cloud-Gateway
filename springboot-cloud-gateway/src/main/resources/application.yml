@@ -10,7 +10,6 @@ spring:
             baseMessage: Spring Cloud Gateway GlobalFilter
             preLogger: true
             postLogger: true
-
       routes:
         - id: employeeModule
           uri: http://localhost:8081/

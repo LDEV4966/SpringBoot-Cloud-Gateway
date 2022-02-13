@@ -16,7 +16,7 @@ import java.util.Collections;
 
 @RequiredArgsConstructor
 @Service
-public class CustomOAuth2UserService implements ReactiveOAuth2UserService<OAuth2UserRequest, OAuth2User> {
+public class CustomReactiveOAuth2UserService implements ReactiveOAuth2UserService<OAuth2UserRequest, OAuth2User> {
 
     private final UserRepository userRepository;
 
@@ -32,6 +32,7 @@ public class CustomOAuth2UserService implements ReactiveOAuth2UserService<OAuth2
         String userNameAttributeName = userRequest.getClientRegistration()
                 .getProviderDetails().getUserInfoEndpoint().getUserNameAttributeName();
 
+        System.out.println("CustomReactiveOAuth2UserService 호출됨");
         return oAuth2User.flatMap( e -> {
              OAuthAttributes attributes = OAuthAttributes.of(registrationId,userNameAttributeName,e.getAttributes());
              saveOrUpdate(attributes);
